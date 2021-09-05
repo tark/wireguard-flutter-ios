@@ -10,7 +10,7 @@ extension FileManager {
   static var appGroupId: String? {
     #if os(iOS)
     //let appGroupIdInfoDictionaryKey = "com.wireguard.ios.app_group_id"
-    let appGroupIdInfoDictionaryKey = "pro.tark.wireguardExampleApp"
+    let appGroupIdInfoDictionaryKey = "pro.tark.wireguardExampleApp.app_group_id"
     #elseif os(macOS)
     let appGroupIdInfoDictionaryKey = "com.wireguard.macos.app_group_id"
     #else
