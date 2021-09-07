@@ -69,6 +69,25 @@ fileprivate let l = L("App")
   
   func startTunnel() {
 
+    // Check if tunnel is disabled and if so re-enable
+    guard tunnelProvider.isEnabled else {
+        l.i("Tunnel is disabled: Re-enabling")
+        tunnelProvider.isEnabled = true
+        tunnelProvider.saveToPreferences { [weak self] error in
+            guard let self = self else { return }
+            
+            if error != nil {
+                l.i("Error saving tunnel: \(error!)")
+                return
+            }
+            
+            l.i("Tunnel re-enabled and saved")
+            self.startTunnel()
+            
+        }
+        return
+    }
+    
     // Start the tunnel
     do {
       l.i("Attempting to start tunnel")
