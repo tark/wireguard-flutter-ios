@@ -10,11 +10,9 @@
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
-		920B33E126B6A897003726BA /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 920B33E026B6A897003726BA /* WireGuardKit */; };
 		920B33EE26B6AB7F003726BA /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 920B33ED26B6AB7F003726BA /* NetworkExtension.framework */; };
 		920B33F126B6AB7F003726BA /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B33F026B6AB7F003726BA /* PacketTunnelProvider.swift */; };
 		920B33F626B6AB7F003726BA /* WireGuardNetworkExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 920B33EB26B6AB7F003726BA /* WireGuardNetworkExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		920B33FF26B6ABA1003726BA /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 920B33FE26B6ABA1003726BA /* WireGuardKit */; };
 		925D887326B6AEA7006332F9 /* L.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D887226B6AEA7006332F9 /* L.swift */; };
 		925D888126B6B1AC006332F9 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D887526B6B1AC006332F9 /* FileManager+Extension.swift */; };
 		925D888226B6B1AC006332F9 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D887626B6B1AC006332F9 /* Keychain.swift */; };
@@ -36,6 +34,8 @@
 		925D889A26B6BA22006332F9 /* TunnelConfiguration+WgQuickConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D887926B6B1AC006332F9 /* TunnelConfiguration+WgQuickConfig.swift */; };
 		925D889B26B6BA24006332F9 /* NETunnelProviderProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D887A26B6B1AC006332F9 /* NETunnelProviderProtocol+Extension.swift */; };
 		925D889C26B6BA27006332F9 /* String+ArrayConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D887B26B6B1AC006332F9 /* String+ArrayConversion.swift */; };
+		92C0120E26E6364F009A900B /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 92C0120D26E6364F009A900B /* WireGuardKit */; };
+		92C0121026E63698009A900B /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 92C0120F26E63698009A900B /* WireGuardKit */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
@@ -123,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				920B33FF26B6ABA1003726BA /* WireGuardKit in Frameworks */,
+				92C0121026E63698009A900B /* WireGuardKit in Frameworks */,
 				920B33EE26B6AB7F003726BA /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				920B33E126B6A897003726BA /* WireGuardKit in Frameworks */,
+				92C0120E26E6364F009A900B /* WireGuardKit in Frameworks */,
 				925D889326B6B7FA006332F9 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,7 +278,7 @@
 			);
 			name = WireGuardNetworkExtension;
 			packageProductDependencies = (
-				920B33FE26B6ABA1003726BA /* WireGuardKit */,
+				92C0120F26E63698009A900B /* WireGuardKit */,
 			);
 			productName = WireGuardNetworkExtension;
 			productReference = 920B33EB26B6AB7F003726BA /* WireGuardNetworkExtension.appex */;
@@ -303,7 +303,7 @@
 			);
 			name = Runner;
 			packageProductDependencies = (
-				920B33E026B6A897003726BA /* WireGuardKit */,
+				92C0120D26E6364F009A900B /* WireGuardKit */,
 			);
 			productName = Runner;
 			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
@@ -341,7 +341,7 @@
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			packageReferences = (
-				920B33DF26B6A897003726BA /* XCRemoteSwiftPackageReference "wireguard-apple" */,
+				92C0120C26E6364F009A900B /* XCRemoteSwiftPackageReference "wireguard-apple" */,
 			);
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
@@ -402,7 +402,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -538,6 +538,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 2WN98ULBU6;
 				ENABLE_BITCODE = NO;
@@ -547,8 +549,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pro.tark.wireguardExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = pro.tark.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -629,6 +632,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = WireGuardNetworkExtension/WireGuardNetworkExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WN98ULBU6;
 				ENABLE_BITCODE = NO;
@@ -642,8 +646,9 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "pro.tark.wireguardExampleApp.network-extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "pro.tark.testApp.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -662,6 +667,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = WireGuardNetworkExtension/WireGuardNetworkExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WN98ULBU6;
 				ENABLE_BITCODE = NO;
@@ -674,8 +680,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "pro.tark.wireguardExampleApp.network-extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "pro.tark.testApp.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -692,6 +699,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = WireGuardNetworkExtension/WireGuardNetworkExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WN98ULBU6;
 				ENABLE_BITCODE = NO;
@@ -704,8 +712,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "pro.tark.wireguardExampleApp.network-extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "pro.tark.testApp.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -829,6 +838,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 2WN98ULBU6;
 				ENABLE_BITCODE = NO;
@@ -838,8 +849,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pro.tark.wireguardExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = pro.tark.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -855,6 +867,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 2WN98ULBU6;
 				ENABLE_BITCODE = NO;
@@ -864,8 +878,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pro.tark.wireguardExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = pro.tark.testApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -918,7 +933,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		920B33DF26B6A897003726BA /* XCRemoteSwiftPackageReference "wireguard-apple" */ = {
+		92C0120C26E6364F009A900B /* XCRemoteSwiftPackageReference "wireguard-apple" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://git.zx2c4.com/wireguard-apple";
 			requirement = {
@@ -929,14 +944,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		920B33E026B6A897003726BA /* WireGuardKit */ = {
+		92C0120D26E6364F009A900B /* WireGuardKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 920B33DF26B6A897003726BA /* XCRemoteSwiftPackageReference "wireguard-apple" */;
+			package = 92C0120C26E6364F009A900B /* XCRemoteSwiftPackageReference "wireguard-apple" */;
 			productName = WireGuardKit;
 		};
-		920B33FE26B6ABA1003726BA /* WireGuardKit */ = {
+		92C0120F26E63698009A900B /* WireGuardKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 920B33DF26B6A897003726BA /* XCRemoteSwiftPackageReference "wireguard-apple" */;
+			package = 92C0120C26E6364F009A900B /* XCRemoteSwiftPackageReference "wireguard-apple" */;
 			productName = WireGuardKit;
 		};
 /* End XCSwiftPackageProductDependency section */
