@@ -10,12 +10,25 @@ fileprivate let l = L("App")
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
+  
   fileprivate var tunnelProvider: NETunnelProviderManager
-
+  
   override init() {
-    l.i("init")
-        
     tunnelProvider = NETunnelProviderManager()
+  }
+
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    GeneratedPluginRegistrant.register(with: self)
+    
+    self.addConfig()
+    
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+  
+  func addConfig() {
     
     var config = InterfaceConfiguration(
         privateKey: PrivateKey(base64Key: "mIWKevXKBlBxXEAtzJJtLOU0TjSduvvm9rUQpvdPBkM=")!
@@ -34,59 +47,60 @@ fileprivate let l = L("App")
     )
     
     tunnelProvider.setTunnelConfiguration(TunnelConfiguration.init(
-      name: "test-tunel",
+      name: "Spider VPN",
       interface: config,
       peers: [peerConfig]
     ))
     
     tunnelProvider.isEnabled = true
     
-    do {
-      try (tunnelProvider.connection as? NETunnelProviderSession)?.startTunnel(
-        //options: ["activationAttemptId": 1]
-      )
-    } catch let error {
-      l.i(error.localizedDescription)
-      
-      guard let systemError = error as? NEVPNError else {
-        l.i("Failed to activate tunnel: Error: \(error)")
+    tunnelProvider.saveToPreferences { [weak self] error in
+      if error != nil {
+        l.i("Failed to save config to preferences")
         return
       }
+
+      guard self != nil else { return }
       
-      switch systemError.code {
-      case NEVPNError.configurationInvalid:
-        l.i("error - configurationInvalid")
-      case NEVPNError.configurationDisabled:
-        l.i("error - configurationDisabled")
-      case NEVPNError.configurationReadWriteFailed:
-        l.i("error - configurationReadWriteFailed")
-      case NEVPNError.configurationStale:
-        l.i("error - configurationStale")
-      case NEVPNError.configurationUnknown:
-        l.i("error - configurationUnknown")
-      case NEVPNError.connectionFailed:
-        l.i("error - connectionFailed")
-        
-      default:
-        l.i("error - some error happens - \(error)")
-      }
-    
+      self?.startTunnel()
     }
     
   }
   
-  override func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-  ) -> Bool {
-    GeneratedPluginRegistrant.register(with: self)
-    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-    
-    
-    
+  func startTunnel() {
+
+    // Start the tunnel
+    do {
+      l.i("Attempting to start tunnel")
+      let activationAttemptId = UUID().uuidString
+      try (tunnelProvider.connection as? NETunnelProviderSession)?.startTunnel(options: ["activationAttemptId": activationAttemptId])
+      l.i("Tunnel started")
+    } catch let error {
+
+        guard let systemError = error as? NEVPNError else {
+            l.i("Failed to start tunnel")
+            return
+        }
       
-    
+        // Note: We are not concerned if the configuration is invalid on first attempt - second should succeed;
+        guard systemError.code == NEVPNError.configurationInvalid || systemError.code == NEVPNError.configurationStale else {
+          l.i("Failed to start tunnel with error: \(error)")
+            return
+        }
+        l.i("Going to reload tunnel config and start it: \(error)")
+
+        tunnelProvider.loadFromPreferences { [weak self] error in
+            guard let self = self else { return }
+            if error != nil {
+                l.i("Failed to reload tunnel: \(error!)")
+                return
+            }
+            l.i("Tunnel reloaded")
+            self.startTunnel()
+        }
+    }
     
   }
+    
 }
 
